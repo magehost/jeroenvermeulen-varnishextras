@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<config>
+
+	<modules>
+		<JeroenVermeulen_VarnishExtras>
+			<version>1.5.3</version>
+		</JeroenVermeulen_VarnishExtras>
+	</modules>
+
+	<global>
+		<helpers>
+			<JeroenVermeulen_VarnishExtras>
+				<class>JeroenVermeulen_VarnishExtras_Helper</class>
+			</JeroenVermeulen_VarnishExtras>
+		</helpers>
+		<blocks>
+			<JeroenVermeulen_VarnishExtras>
+				<class>JeroenVermeulen_VarnishExtras_Block</class>
+			</JeroenVermeulen_VarnishExtras>
+		</blocks>
+	</global>
+
+	<frontend>
+		<translate>
+			<modules>
+				<JeroenVermeulen_VarnishExtras>
+					<files>
+						<default>JeroenVermeulen_VarnishExtras.csv</default>
+					</files>
+				</JeroenVermeulen_VarnishExtras>
+      		</modules>
+		</translate>
+	</frontend>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <!-- URL:  http://[MAGROOT]/admin/[CONTROLLER]/[ACTION]/key/xxxxxxxxxxx/ -->
+                        <JeroenVermeulen_VarnishExtras after="Mage_Adminhtml">JeroenVermeulen_VarnishExtras</JeroenVermeulen_VarnishExtras>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <JeroenVermeulen_VarnishExtras module="JeroenVermeulen_VarnishExtras">
+                    <file>jeroenvermeulen/varnishextras.xml</file>
+                </JeroenVermeulen_VarnishExtras>
+            </updates>
+        </layout>
+        <menu>
+            <system>
+                <children>
+                    <!-- URL:  http://[MAGROOT]/admin/jv_varnishextras_purge/key/xxxxxxxxxxx/ -->
+                    <jv_varnish_purge translate="title" module="JeroenVermeulen_VarnishExtras">
+                        <title>JV: Purge Varnish URL</title>
+                        <action>adminhtml/jv_varnishextras_purge</action>
+                        <sort_order>90</sort_order>
+                    </jv_varnish_purge>
+                </children>
+            </system>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <jv_varnish_purge translate="title" module="JeroenVermeulen_VarnishExtras">
+                                    <title>JV: Purge Varnish URL</title>
+                                    <children>
+                                        <wildcard translate="title" module="JeroenVermeulen_VarnishExtras">
+                                            <title>Allow to use "All URLs starting with"</title>
+                                        </wildcard>
+                                    </children>
+                                </jv_varnish_purge>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <JeroenVermeulen_VarnishExtras>
+                    <files>
+                        <default>JeroenVermeulen_VarnishExtras.csv</default>
+                    </files>
+                </JeroenVermeulen_VarnishExtras>
+            </modules>
+        </translate>
+    </adminhtml>
+
+</config>

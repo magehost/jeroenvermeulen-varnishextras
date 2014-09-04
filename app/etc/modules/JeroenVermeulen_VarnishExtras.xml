@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<JeroenVermeulen_VarnishExtras>
+			<active>true</active>
+			<codePool>community</codePool>
+            <depends>
+                <Mage_Core/>
+                <Nexcessnet_Turpentine/>
+            </depends>
+		</JeroenVermeulen_VarnishExtras>
+	</modules>
+</config>

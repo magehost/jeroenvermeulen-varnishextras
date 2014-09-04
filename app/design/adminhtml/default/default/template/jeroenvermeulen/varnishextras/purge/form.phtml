@@ -1,0 +1,44 @@
+<?php
+    /** @var JeroenVermeulen_VarnishExtras_Block_Purge_Form $this */
+    $sUrl = Mage::getSingleton('core/session')->getData('JeroenVermeulen_VarnishExtras_PurgeURL');
+    $sUrl = ( empty( $sUrl ) ) ? '' : $sUrl;
+    $sMethod = Mage::getSingleton('core/session')->getData('JeroenVermeulen_VarnishExtras_PurgeMethod');
+    $sMethod = ( empty( $sMethod ) ) ? 'exact' : $sMethod;
+?>
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php echo $this->__('Purge URL'); ?></h3></td>
+            <td class="a-right">
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span>Purge URL</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" name="edit_form" method="post" action="<?php echo $this->getUrl('*/*/post'); ?>">
+        <input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" />
+        <fieldset id="my-fieldset">
+            <table cellspacing="0" class="form-list" style="width: 100%">
+<?php if ( $this->canFlushWildcard() ): ?>
+                <tr>
+                    <td class="label"><?php echo $this->__('Purge Method'); ?> </td>
+                    <td class="input-ele" style="vertical-align: middle;">
+                        <select name="purgeform[method]">
+                            <option value="exact" <?php if ('exact'==$sMethod): ?>selected="selected"<?php endif;?>>Exact Match</option>
+                            <option value="wildcard" <?php if ('wildcard'==$sMethod): ?>selected="selected"<?php endif;?>>All URLs starting with:</option>
+                        </select>
+                    </td>
+                </tr>
+<?php endif; ?>
+                <tr>
+                    <td class="label"><?php echo $this->__('URL to Purge'); ?> <span class="required">*</span></td>
+                    <td class="input-ele" style="vertical-align: middle;"><input class="input-text required-entry" name="purgeform[url]" style="width: 99%" value="<?php echo $sUrl; ?>" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+</script>

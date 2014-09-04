@@ -1,0 +1,18 @@
+## JeroenVermeulen_varnishextras Extension - Menu to flush URL in Varnish
+
+# ---- Extension code dir
+# Magento Community Module     - Recursive Dir - JeroenVermeulen/VarnishExtras
+app/code/community/JeroenVermeulen/VarnishExtras/                                app/code/community/JeroenVermeulen/VarnishExtras/
+
+# ---- Backend layout
+# Magento User Interface       - File          - adminhtml/default/default/layout/jeroenvermeulen/varnishextras.xml
+app/design/adminhtml/default/default/layout/jeroenvermeulen/varnishextras.xml    app/design/adminhtml/base/default/layout/jeroenvermeulen/varnishextras.xml
+
+# ---- Backend layout
+# Magento User Interface       - Recursive Dir - adminhtml/default/default/template/jeroenvermeulen/varnishextras
+app/design/adminhtml/default/default/template/jeroenvermeulen/varnishextras     app/design/adminhtml/base/default/template/jeroenvermeulen/varnishextras
+
+# ---- Module enable XML
+# Magento Global Config        - File          - modules/JeroenVermeulen_VarnishExtras.xml
+app/etc/modules/JeroenVermeulen_VarnishExtras.xml                                app/etc/modules/JeroenVermeulen_VarnishExtras.xml
+

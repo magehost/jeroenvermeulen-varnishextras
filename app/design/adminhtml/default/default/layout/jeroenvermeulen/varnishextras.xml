@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_jv_varnishextras_purge_index>
+        <update handle="JeroenVermeulen_VarnishExtras_adminhtml_purge_form"/>
+        <reference name="content">
+            <block type="JeroenVermeulen_VarnishExtras/purge_form" name="content/purge_form" template="jeroenvermeulen/varnishextras/purge/form.phtml"/>
+        </reference>
+    </adminhtml_jv_varnishextras_purge_index>
+</layout>
